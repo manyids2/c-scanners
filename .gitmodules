@@ -14,3 +14,6 @@
 	path = treesitters/tree-sitter-markdown-temp
 	url = https://github.com/MDeiml/tree-sitter-markdown
 	branch = split_parser
+[submodule "treesitters/tree-sitter"]
+	path = treesitters/tree-sitter
+	url = https://github.com/tree-sitter/tree-sitter

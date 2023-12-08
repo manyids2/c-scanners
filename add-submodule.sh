@@ -4,6 +4,11 @@ SRC_PATH="$(realpath "$0")"
 SRC_DIR="$(dirname "$SRC_PATH")"
 echo "dirname : [$SRC_DIR]"
 
+# Add the OG as well
+git submodule add \
+	"https://github.com/tree-sitter/tree-sitter" \
+	"treesitters/tree-sitter"
+
 LANGS="c go css html"
 echo "Langs : [$LANGS]"
 
