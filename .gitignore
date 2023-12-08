@@ -1,0 +1,11 @@
+.nvim.lua
+
+c-scanners
+
+**/*.o
+**/*.so
+
+.cache/
+
+compile_commands.json
+gmon.out
