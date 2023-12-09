@@ -1,12 +1,26 @@
 (fenced_code_block
   (info_string
-    (language) @injection.language)
-  (code_fence_content) @injection.content)
+    (language) @_lang)
+  (code_fence_content) @injection.content
+  (#set-lang-from-info-string! @_lang))
 
-((html_block) @injection.content (#set! injection.language "html"))
+((html_block) @injection.content 
+ (#set! injection.language "html")
+ (#set! injection.combined)
+ (#set! injection.include-children))
 
-(document . (section . (thematic_break) (_) @injection.content (thematic_break)) (#set! injection.language "yaml"))
+((minus_metadata) @injection.content 
+ (#set! injection.language "yaml") 
+ (#offset! @injection.content 1 0 -1 0)
+ (#set! injection.include-children))
 
-([(minus_metadata) (plus_metadata)] @injection.content (#set! injection.language "yml"))
+((plus_metadata) @injection.content 
+ (#set! injection.language "toml") 
+ (#offset! @injection.content 1 0 -1 0)
+ (#set! injection.include-children))
 
-((inline) @injection.content (#set! injection.language "markdown_inline"))
+([
+  (inline)
+  (pipe_table_cell)
+ ] @injection.content
+ (#set! injection.language "markdown_inline"))

@@ -13,3 +13,30 @@ clean:
 	rm $(PROJECT)
 
 # --- Treesitter ---
+OUTPUT_DIR := bin
+
+$(OUTPUT_DIR)/ts-json: treesitters/json.c
+	cd treesitters && gcc                 \
+	-I tree-sitter/lib/include            \
+	json.c utils.c  utils.h               \
+	tree-sitter-json/src/parser.c         \
+	tree-sitter/libtree-sitter.a          \
+	-g -Wall                              \
+	-o ../$(OUTPUT_DIR)/ts-json
+
+run-ts-json:
+	bear -- make $(OUTPUT_DIR)/ts-json
+	./$(OUTPUT_DIR)/ts-json ./treesitters/tree-sitter-json/package.json
+
+$(OUTPUT_DIR)/ts-go: treesitters/go.c
+	cd treesitters && gcc                 \
+	-I tree-sitter/lib/include            \
+	go.c utils.c  utils.h                 \
+	tree-sitter-go/src/parser.c           \
+	tree-sitter/libtree-sitter.a          \
+	-g -Wall                              \
+	-o ../$(OUTPUT_DIR)/ts-go
+
+run-ts-go:
+	bear -- make $(OUTPUT_DIR)/ts-go
+	./$(OUTPUT_DIR)/ts-go /home/x/fd/code/go/go-tufte/main.go

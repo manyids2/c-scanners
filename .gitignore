@@ -7,5 +7,9 @@ c-scanners
 
 .cache/
 
+tresitters/
+
 compile_commands.json
 gmon.out
+bin
+bin

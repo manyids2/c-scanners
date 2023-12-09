@@ -17,3 +17,6 @@
 [submodule "treesitters/tree-sitter"]
 	path = treesitters/tree-sitter
 	url = https://github.com/tree-sitter/tree-sitter
+[submodule "treesitters/tree-sitter-json"]
+	path = treesitters/tree-sitter-json
+	url = https://github.com/tree-sitter/tree-sitter-json
