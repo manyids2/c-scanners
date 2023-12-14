@@ -7,7 +7,7 @@ c-scanners
 
 .cache/
 
-tresitters/
+tresitters/tree-sitter*
 
 compile_commands.json
 gmon.out

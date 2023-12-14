@@ -2,6 +2,8 @@
 
 Scanners and parsers for simple cases.
 
+Now extending to use tree-sitter.
+
 Usecases:
 
 - `go`
