@@ -23,3 +23,13 @@ char *read_entire_file(const char *fileName) {
 
   return content;
 }
+
+char *s_get_substring(char *line, uint64_t start, uint64_t end) {
+  int len = end - start;
+  char *s = malloc(sizeof(char) * (len + 1));
+  for (int i = 0; i < len; i++) {
+    s[i] = line[start + i];
+  }
+  s[len] = '\0';
+  return s;
+}

@@ -62,18 +62,19 @@ int main(int argc, char *argv[]) {
   // Get root node
   TSNode root_node = ts_tree_root_node(tree);
 
-  // Walk tree to print back content, alloc for token here
-  char *token = malloc(sizeof(char) * MAX_TOKEN_LENGTH);
-  print_tree(root_node, 0, content, token);
-  free(token);
+  // // Walk tree to print back content, alloc for token here
+  // char *token = malloc(sizeof(char) * MAX_TOKEN_LENGTH);
+  // print_tree(root_node, 0, content, token);
+  // free(token);
 
-  // // Print the syntax tree as an S-expression.
-  // char *string = ts_node_string(root_node);
-  // printf("Syntax tree: %s\n", string);
+  // Print the syntax tree as an S-expression.
+  char *string = ts_node_string(root_node);
+  printf("%s", string);
 
+  // NOTE: No need cause program is exiting anyway.
   // Free all of the heap-allocated memory.
   // free(string);
-  ts_tree_delete(tree);
-  ts_parser_delete(parser);
+  // ts_tree_delete(tree);
+  // ts_parser_delete(parser);
   return 0;
 }

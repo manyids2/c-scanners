@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// /home/x/fd/code/go/go-tufte/markdown/markdown.go
-
 void go_functions(char *path) {
   char *content = read_entire_file(path);
   const char *line_delim = "\n";

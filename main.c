@@ -1,4 +1,5 @@
 #include "scanners/go.h"
+#include "scanners/tf-idf.h"
 
 int main(int argc, char *argv[]) {
   if (argc == 3) {
@@ -11,7 +12,16 @@ int main(int argc, char *argv[]) {
     return EXIT_FAILURE;
   }
 
-  if (!strcmp(argv[1], "go-functions")) {
+  // Compute byte offsets of alphanumeric tokens in file
+  if (!strcmp(argv[1], "print-tokens")) {
+    // TODO: Later make into command line arg
+    const char *token_delim = " \n\t(){}[]";
+    print_tokens(argv[2], token_delim);
+    // USAGE:
+    //   `./c-scanners print-tokens PATH |\
+    //       sed -s 1d | sort | uniq`
+
+  } else if (!strcmp(argv[1], "go-functions")) {
     go_functions(argv[2]);
   }
 
